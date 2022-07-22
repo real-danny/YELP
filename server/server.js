@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const db = require("./db");
+require('dotenv')
 
 const morgan = require("morgan");
 
@@ -11,6 +12,11 @@ app.use(cors());
 app.use(express.json());
 
 // Get all Restaurants
+app.get('/:id', async (req, res) => {
+  const result = await db.query("select * from restaurants where id = $1", [req.params.id])
+  res.send(result)
+})
+
 app.get("/api/v1/restaurants", async (req, res) => {
   try {
     //const results = await db.query("select * from restaurants");

@@ -88,12 +88,11 @@ const RestaurantList = (props) => {
                     </button>
                   </td>
                   <td>
-                    <button
-                      onClick={(e) => handleDelete(e, restaurant.id)}
-                      className="btn btn-danger"
-                    >
-                      Delete
-                    </button>
+                  <button
+                    onClick={ (e) => handleDelete(e, restaurant.id) }
+                    className="btn btn-danger">
+                    Delete
+                  </button>
                   </td>
                 </tr>
               );
